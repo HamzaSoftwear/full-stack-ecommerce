@@ -20,15 +20,8 @@ const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.CONNECTION_DB;
 
 // ==== CORS CONFIG ====
-app.use(
-  cors({
-    origin: [
-      'http://localhost:5173',
-      'https://full-stack-ecommerce.vercel.app'
-    ],
-    credentials: true,
-  })
-);
+app.use(cors());
+
 
 
 
