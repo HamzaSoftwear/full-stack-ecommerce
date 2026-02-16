@@ -22,14 +22,14 @@ const MONGO_URI = process.env.CONNECTION_DB;
 // ==== CORS CONFIG ====
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: [
+      'http://localhost:5173',
+      'https://full-stack-ecommerce.vercel.app'
+    ],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-    exposedHeaders: ['Content-Type', 'Authorization'],
-    optionsSuccessStatus: 200,
   })
 );
+
 
 
 // ==== BASIC MIDDLEWARES ====
