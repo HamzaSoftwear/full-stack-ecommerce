@@ -84,6 +84,6 @@ export async function uploadImage(file) {
   // Return full URL
   // return `http://localhost:5000${data.file.url}`;
 
-  return `${import.meta.env.VITE_API_URL.replace('/api/v1', '')}${data.file.url}`;
+  return data.file.url;
 
 }
