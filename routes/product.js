@@ -131,15 +131,15 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ success: false, message: 'Invalid category' });
     }
 
-    const product = new Product({
-      name: req.body.name.trim(),
-      image: normalizeImagePath(req.body.image),
-      images: normalizeImagesArray(req.body.images),
-      stock: req.body.stock ? Number(req.body.stock) : 0,
-      price: Number(req.body.price),
-      category: category._id,
-      description: req.body.description || 'No description provided',
-    });
+  const product = new Product({
+  name: req.body.name.trim(),
+  image: req.body.image, // Cloudinary URL مباشرة
+  images: req.body.images || [],
+  stock: req.body.stock ? Number(req.body.stock) : 0,
+  price: Number(req.body.price),
+  category: category._id,
+  description: req.body.description || 'No description provided',
+});
 
     const createdProduct = await product.save();
     res.status(201).json(createdProduct);
